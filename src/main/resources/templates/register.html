@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+//./gradlew bootRun -> subir aplicação
+
+<h2>Cadastro</h2>
+
+<form th:action="@{/register}" method="post" th:object="${user}">
+
+    <div>
+        <label>Nome:</label>
+        <input type="text" th:field="*{name}" required />
+    </div>
+
+    <div>
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" required />
+    </div>
+
+    <div>
+        <label>Senha:</label>
+        <input type="password" th:field="*{password}" required />
+    </div>
+
+    <div>
+        <button type="submit">Cadastrar</button>
+    </div>
+
+</form>
+
+<p>
+    Já tem conta?
+    <a th:href="@{/login}">Fazer login</a>
+</p>
+
+</body>
+</html>
