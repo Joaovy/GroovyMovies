@@ -1,13 +1,13 @@
-package controller;
+package org.example.groovyfilms.controller;
 
-import domain.model.User;
+import org.example.groovyfilms.domain.model.User;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import service.UserService;
+import org.example.groovyfilms.service.UserService;
 
 @Controller
 public class AuthController {

@@ -1,4 +1,4 @@
-package domain.model;
+package org.example.groovyfilms.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;

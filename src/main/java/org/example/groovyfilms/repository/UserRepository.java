@@ -1,6 +1,6 @@
-package repository;
+package org.example.groovyfilms.repository;
 
-import domain.model.User;
+import org.example.groovyfilms.domain.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

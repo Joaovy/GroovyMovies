@@ -1,9 +1,9 @@
-package service;
+package org.example.groovyfilms.service;
 
-import domain.model.User;
+import org.example.groovyfilms.domain.model.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
+import org.example.groovyfilms.repository.UserRepository;
 
 @Service
 public class UserService {
