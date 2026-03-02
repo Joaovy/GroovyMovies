@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Filmes</title>
+</head>
+<body>
+
+<h1>Lista de Filmes</h1>
+
+<a th:href="@{/}">Voltar ao Menu</a>
+
+<br><br>
+
+<a th:href="@{/movies/new}">Cadastrar Novo Filme</a>
+<button type="submit">cadastro</button>
+
+<hr>
+
+<div th:if="${#lists.isEmpty(movies)}">
+    <p>Nenhum filme cadastrado.</p>
+</div>
+
+<div th:each="movie : ${movies}">
+    <h3 th:text="${movie.title}">Titulo</h3>
+    <p><strong>Diretor:</strong> <span th:text="${movie.director}"></span></p>
+    <p><strong>Ano:</strong> <span th:text="${movie.releaseYear}"></span></p>
+
+    <a th:href="@{'/movies/' + ${movie.id}}">Ver Detalhes</a>
+
+    <form th:action="@{'/movies/' + ${movie.id} + '/delete'}" method="post">
+        <button type="submit">Deletar</button>
+    </form>
+
+    <hr>
+</div>
+
+</body>
+</html>
