@@ -22,7 +22,7 @@ public class Review {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
 
     public Review() {
