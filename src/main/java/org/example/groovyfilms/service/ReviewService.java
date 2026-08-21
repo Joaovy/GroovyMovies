@@ -19,6 +19,6 @@ public class ReviewService {
     public ReviewService(ReviewRepository reviewRepository, MovieRepository movieRepository, UserRepository userRepository) {
         this.reviewRepository = reviewRepository;
         this.movieRepository = movieRepository;
-        UserRepository = userRepository;
+        this.UserRepository = userRepository;
     }
 }

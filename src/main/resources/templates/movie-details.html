@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${movie.title}">Detalhes do Filme</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<a th:href="@{/movies}">Voltar à Lista</a>
+
+<hr>
+
+<h1 th:text="${movie.title}">Título</h1>
+
+<img th:src="${movie.posterUrl}" th:alt="${movie.title}" width="200" />
+
+<p><strong>Diretor:</strong> <span th:text="${movie.director}"></span></p>
+<p><strong>Ano:</strong> <span th:text="${movie.releaseYear}"></span></p>
+<p><strong>Duração:</strong> <span th:text="${movie.durationsMinutes}"></span> min</p>
+<p><strong>Gêneros:</strong> <span th:text="${#strings.listJoin(movie.genres, ', ')}"></span></p>
+<p><strong>Sinopse:</strong></p>
+<p th:text="${movie.description}"></p>
+
+<hr>
+
+<a th:href="@{'/movies/' + ${movie.id} + '/edit'}">Editar</a>
+
+<form th:action="@{'/movies/' + ${movie.id} + '/delete'}" method="post" style="display:inline">
+    <button type="submit">Deletar</button>
+</form>
+
+</body>
+</html>
