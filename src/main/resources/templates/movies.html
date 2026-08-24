@@ -24,6 +24,11 @@
     <h3 th:text="${movie.title}">Titulo</h3>
     <p><strong>Diretor:</strong> <span th:text="${movie.director}"></span></p>
     <p><strong>Ano:</strong> <span th:text="${movie.releaseYear}"></span></p>
+    <p><strong>Nota média:</strong>
+        <span th:if="${averageRatings[movie.id] > 0}"
+              th:text="${#numbers.formatDecimal(averageRatings[movie.id], 1, 1)} + ' / 5'"></span>
+        <span th:if="${averageRatings[movie.id] == 0}">Sem avaliações</span>
+    </p>
 
     <a th:href="@{'/movies/' + ${movie.id}}">Ver Detalhes</a>
 

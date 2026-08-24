@@ -2,12 +2,12 @@ package org.example.groovyfilms.domain.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
-import java.security.PrivateKey;
-import java.time.LocalDateTime;
-
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "movie_id"}))
 public class Rating {
 
     @Id
@@ -15,6 +15,8 @@ public class Rating {
     private Long id;
 
     @NotNull
+    @Min(1)
+    @Max(5)
     private int score;
 
     @ManyToOne

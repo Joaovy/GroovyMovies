@@ -23,6 +23,24 @@
 
 <hr>
 
+<h3>Avaliação</h3>
+<p><strong>Média:</strong>
+    <span th:if="${averageRating > 0}"
+          th:text="${#numbers.formatDecimal(averageRating, 1, 1)} + ' / 5'"></span>
+    <span th:if="${averageRating == 0}">Sem avaliações ainda</span>
+</p>
+
+<form th:action="@{'/movies/' + ${movie.id} + '/rating'}" method="post">
+    <label>Sua nota:</label>
+    <span th:each="i : ${#numbers.sequence(1, 5)}">
+        <input type="radio" name="score" th:value="${i}" th:checked="${userScore == i}" />
+        <label th:text="${i}"></label>
+    </span>
+    <button type="submit">Avaliar</button>
+</form>
+
+<hr>
+
 <a th:href="@{'/movies/' + ${movie.id} + '/edit'}">Editar</a>
 
 <form th:action="@{'/movies/' + ${movie.id} + '/delete'}" method="post" style="display:inline">
